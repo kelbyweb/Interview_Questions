@@ -1,0 +1,34 @@
+// Solution
+
+vector<int> mergeArrays(vector<int> a, vector<int> b) {
+   
+    vector<int> newVecArray; 
+    int i, j, aSize, bSize;
+    i = j = 0;
+    aSize = a.size();
+    bSize = b.size();
+
+    // traverse given vector arrays 
+    while (i < aSize && j < bSize) {
+        if (a[i] <= b[j]) {
+            newVecArray.push_back(a[i]); // push a[i] to newVecArray
+            ++i;
+        }
+        else {
+            newVecArray.push_back(b[j]); // push b[i] to newVecArray 
+            ++j;
+        }
+    }
+
+    // push a's remaining elements to newVecArray
+    while (i < aSize) {
+        newVecArray.push_back(a[i]);
+        ++i;
+    }
+    // push b's remaining elements to newVecArray
+    while (j < bSize) {
+        newVecArray.push_back(b[j]);
+        ++j;
+    }
+    return newVecArray; // merged array
+}
